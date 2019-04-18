@@ -66,6 +66,12 @@ class MeuArrayListTest {
 	void testeGet() {
 		MeuArrayList<Object> array = new MeuArrayList<Object>();
 		try {
+			array.add(null);
+			assertTrue(false);
+		} catch (NullPointerException e) {
+			assertTrue(true);
+		}
+		try {
 			array.get(0);
 			assertTrue(false);
 		} catch (IndexOutOfBoundsException e) {

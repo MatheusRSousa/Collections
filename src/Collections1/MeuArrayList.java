@@ -8,7 +8,10 @@ public class MeuArrayList<T> {
 	private int tamanho;
 	
 	
-	public void add(Object object) {
+	public void add(Object object) throws NullPointerException{
+		if (object == null) {
+			throw new NullPointerException();
+		}
 		if(tamanho == array.length) {
 			Object[] novoArray = new Object[tamanho+TAMANHO_INICIAL];
 			for (int i = 0; i < array.length; i++) {
@@ -16,10 +19,9 @@ public class MeuArrayList<T> {
 			}
 			array=novoArray;
 		}
-		if(object != null) {
-			array[tamanho] = object;
-			tamanho++;
-		}
+		array[tamanho] = object;
+		tamanho++;
+		
 	}
 	
 	public void add(int index, Object object) throws IndexOutOfBoundsException{
